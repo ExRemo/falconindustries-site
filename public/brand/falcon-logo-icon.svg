@@ -1,0 +1,16 @@
+    <svg xmlns="http://www.w3.org/2000/svg" width="300" height="170" viewBox="0 0 300 170" role="img" aria-labelledby="title">
+      <title id="title">Falcon Industries icon</title>
+
+      <g transform="translate(0.000 0.000) scale(1.000000)">
+<polygon fill="#C1121F" points="4,80 268,18 226,72 83,87"/>
+<polygon fill="#050505" points="70,91 188,82 82,159 42,170"/>
+<g fill="#050505" stroke="#050505" stroke-width="4.8" stroke-linecap="butt">
+<line x1="196" y1="89" x2="264" y2="89"/>
+<circle cx="196" cy="89" r="7.2"/><circle cx="264" cy="89" r="7.2"/>
+<line x1="164" y1="118" x2="239" y2="118"/>
+<circle cx="164" cy="118" r="7.2"/><circle cx="239" cy="118" r="7.2"/>
+<line x1="154" y1="143" x2="213" y2="143"/>
+<circle cx="213" cy="143" r="7.2"/>
+</g>
+</g>
+    </svg>
