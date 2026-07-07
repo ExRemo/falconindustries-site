@@ -80,7 +80,11 @@
           <p class="hero-bottom-line">Discover. Validate. Deploy. Scale.</p>
         </div>
         <div class="hero-visual" data-reveal data-video-fallback aria-hidden="true">
-          <img src="/public/brand/falcon-logo-icon.svg" alt="">
+          <video autoplay muted loop playsinline preload="metadata" poster="../assets/hero-poster.jpg">
+            <source src="/public/media/hero-main-mobile.mp4" media="(max-width: 767px)" type="video/mp4">
+            <source src="/public/media/hero-main.mp4" type="video/mp4">
+            <source src="../assets/hero.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </section>
@@ -141,16 +145,8 @@
             <p>工程机械、仓储设备、市政车辆、高空作业平台和专用设备。</p>
           </article>
           <article class="tech-card" data-reveal>
-            <h3>Components &amp; Supply</h3>
-            <p>工业零部件、备件、液压系统、发动机、电子部件和机械系统。</p>
-          </article>
-          <article class="tech-card" data-reveal>
-            <h3>Factory Sourcing &amp; Audit</h3>
-            <p>制造商寻找、工厂审核、商务谈判、OEM/ODM、质量控制和技术验证。</p>
-          </article>
-          <article class="tech-card" data-reveal>
-            <h3>Global Supply &amp; Logistics</h3>
-            <p>出口、单证、清关、集货、仓储和国际运输。</p>
+            <h3>Industrial Components</h3>
+            <p>工业零部件、备件、液压系统、发动机、电子部件和工程机械系统。</p>
           </article>
         </div>
       </div>
@@ -205,7 +201,7 @@
         </div>
         <div class="capability-grid">
           <article class="capability-column" data-reveal>
-            <h3>Technology</h3>
+            <h3>技术</h3>
             <ul>
               <li>技术发现</li>
               <li>技术评估</li>
@@ -214,16 +210,16 @@
             </ul>
           </article>
           <article class="capability-column" data-reveal>
-            <h3>Manufacturing</h3>
+            <h3>制造</h3>
             <ul>
               <li>工厂寻找</li>
+              <li>工厂审核</li>
               <li>供应商验证</li>
-              <li>OEM/ODM开发</li>
               <li>质量控制</li>
             </ul>
           </article>
           <article class="capability-column" data-reveal>
-            <h3>Deployment</h3>
+            <h3>部署</h3>
             <ul>
               <li>文件</li>
               <li>物流</li>
@@ -232,7 +228,7 @@
             </ul>
           </article>
           <article class="capability-column" data-reveal>
-            <h3>Scale</h3>
+            <h3>规模化</h3>
             <ul>
               <li>市场进入</li>
               <li>经销商网络</li>
@@ -281,7 +277,6 @@
           <p>告诉我们您希望自动化、改进或规模化的业务环节。Falcon 将帮助识别能够创造实际价值的技术和合作伙伴。</p>
         </div>
         <form class="contact-form" action="mailto:info@falconindustries.io" method="post" data-contact-form data-mail-subject="Falcon Industries：新的工业项目" data-status-opening="正在打开您的邮件客户端..." data-status-fallback="如果邮件没有打开，请直接发送至 info@falconindustries.io。">
-          <input type="hidden" name="project" value="">
           <label>
             <span>姓名</span>
             <input type="text" name="name" required>
@@ -292,7 +287,7 @@
           </label>
           <label>
             <span>国家</span>
-            <input type="text" name="country" oninput="this.form.elements.project.value='Country: ' + (this.value || '') + '\n\nMessage:\n' + (this.form.elements.message.value || '')">
+            <input type="text" name="country">
           </label>
           <label>
             <span>联系方式</span>
@@ -300,7 +295,7 @@
           </label>
           <label>
             <span>留言</span>
-            <textarea name="message" rows="6" required oninput="this.form.elements.project.value='Country: ' + (this.form.elements.country.value || '') + '\n\nMessage:\n' + (this.value || '')"></textarea>
+            <textarea name="message" rows="6" required></textarea>
           </label>
           <button type="submit" class="button button--primary">发送咨询</button>
           <p class="form-status" role="status" aria-live="polite" data-form-status></p>

@@ -80,7 +80,11 @@
           <p class="hero-bottom-line">Discover. Validate. Deploy. Scale.</p>
         </div>
         <div class="hero-visual" data-reveal data-video-fallback aria-hidden="true">
-          <img src="/public/brand/falcon-logo-icon.svg" alt="">
+          <video autoplay muted loop playsinline preload="metadata" poster="../assets/hero-poster.jpg">
+            <source src="/public/media/hero-main-mobile.mp4" media="(max-width: 767px)" type="video/mp4">
+            <source src="/public/media/hero-main.mp4" type="video/mp4">
+            <source src="../assets/hero.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </section>
@@ -141,16 +145,8 @@
             <p>Construction machinery, warehouse equipment, municipal vehicles, lifting platforms and specialized machinery.</p>
           </article>
           <article class="tech-card" data-reveal>
-            <h3>Components &amp; Supply</h3>
-            <p>Industrial components, spare parts, hydraulics, engines, electronics and mechanical systems.</p>
-          </article>
-          <article class="tech-card" data-reveal>
-            <h3>Factory Sourcing &amp; Audit</h3>
-            <p>Manufacturer search, factory audit, negotiations, OEM/ODM, quality control and technical verification.</p>
-          </article>
-          <article class="tech-card" data-reveal>
-            <h3>Global Supply &amp; Logistics</h3>
-            <p>Export, documentation, customs, consolidation, warehousing and international delivery.</p>
+            <h3>Industrial Components</h3>
+            <p>Industrial components, spare parts, hydraulics, engines, electronics and engineered mechanical systems.</p>
           </article>
         </div>
       </div>
@@ -217,8 +213,8 @@
             <h3>Manufacturing</h3>
             <ul>
               <li>Factory search</li>
+              <li>Factory audit</li>
               <li>Supplier validation</li>
-              <li>OEM/ODM</li>
               <li>Quality control</li>
             </ul>
           </article>
@@ -281,7 +277,6 @@
           <p>Tell us what you want to automate, improve or scale. Falcon will help identify technologies and partners that can create measurable impact.</p>
         </div>
         <form class="contact-form" action="mailto:info@falconindustries.io" method="post" data-contact-form data-mail-subject="Falcon Industries: new industrial project" data-status-opening="Opening your email client..." data-status-fallback="If nothing opens, email info@falconindustries.io.">
-          <input type="hidden" name="project" value="">
           <label>
             <span>Name</span>
             <input type="text" name="name" required>
@@ -292,7 +287,7 @@
           </label>
           <label>
             <span>Country</span>
-            <input type="text" name="country" oninput="this.form.elements.project.value='Country: ' + (this.value || '') + '\n\nMessage:\n' + (this.form.elements.message.value || '')">
+            <input type="text" name="country">
           </label>
           <label>
             <span>Contact</span>
@@ -300,7 +295,7 @@
           </label>
           <label>
             <span>Message</span>
-            <textarea name="message" rows="6" required oninput="this.form.elements.project.value='Country: ' + (this.form.elements.country.value || '') + '\n\nMessage:\n' + (this.value || '')"></textarea>
+            <textarea name="message" rows="6" required></textarea>
           </label>
           <button type="submit" class="button button--primary">Send Inquiry</button>
           <p class="form-status" role="status" aria-live="polite" data-form-status></p>

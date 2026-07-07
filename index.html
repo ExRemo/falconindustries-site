@@ -80,7 +80,11 @@
           <p class="hero-bottom-line">Discover. Validate. Deploy. Scale.</p>
         </div>
         <div class="hero-visual" data-reveal data-video-fallback aria-hidden="true">
-          <img src="/public/brand/falcon-logo-icon.svg" alt="">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.jpg">
+            <source src="/public/media/hero-main-mobile.mp4" media="(max-width: 767px)" type="video/mp4">
+            <source src="/public/media/hero-main.mp4" type="video/mp4">
+            <source src="assets/hero.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </section>
@@ -141,16 +145,8 @@
             <p>Строительная техника, складское оборудование, коммунальная техника, подъёмные платформы и специализированные машины.</p>
           </article>
           <article class="tech-card" data-reveal>
-            <h3>Components &amp; Supply</h3>
-            <p>Промышленные комплектующие, запчасти, гидравлика, двигатели, электроника и механические системы.</p>
-          </article>
-          <article class="tech-card" data-reveal>
-            <h3>Factory Sourcing &amp; Audit</h3>
-            <p>Поиск производителей, аудит заводов, переговоры, OEM/ODM, контроль качества и техническая проверка.</p>
-          </article>
-          <article class="tech-card" data-reveal>
-            <h3>Global Supply &amp; Logistics</h3>
-            <p>Экспорт, документы, таможня, консолидация, склады и международная доставка.</p>
+            <h3>Industrial Components</h3>
+            <p>Промышленные комплектующие, запчасти, гидравлика, двигатели, электроника и инженерные механические системы.</p>
           </article>
         </div>
       </div>
@@ -205,7 +201,7 @@
         </div>
         <div class="capability-grid">
           <article class="capability-column" data-reveal>
-            <h3>Technology</h3>
+            <h3>Технологии</h3>
             <ul>
               <li>Поиск технологий</li>
               <li>Техническая оценка</li>
@@ -214,16 +210,16 @@
             </ul>
           </article>
           <article class="capability-column" data-reveal>
-            <h3>Manufacturing</h3>
+            <h3>Производство</h3>
             <ul>
               <li>Поиск заводов</li>
+              <li>Аудит заводов</li>
               <li>Проверка поставщиков</li>
-              <li>OEM/ODM</li>
               <li>Контроль качества</li>
             </ul>
           </article>
           <article class="capability-column" data-reveal>
-            <h3>Deployment</h3>
+            <h3>Внедрение</h3>
             <ul>
               <li>Документация</li>
               <li>Логистика</li>
@@ -232,7 +228,7 @@
             </ul>
           </article>
           <article class="capability-column" data-reveal>
-            <h3>Scale</h3>
+            <h3>Масштабирование</h3>
             <ul>
               <li>Выход на рынок</li>
               <li>Дилерская сеть</li>
@@ -281,7 +277,6 @@
           <p>Расскажите, что вы хотите автоматизировать, улучшить или масштабировать. Falcon поможет найти технологии и партнёров, которые могут дать измеримый эффект.</p>
         </div>
         <form class="contact-form" action="mailto:info@falconindustries.io" method="post" data-contact-form data-mail-subject="Falcon Industries: новый индустриальный проект" data-status-opening="Открываем ваш почтовый клиент..." data-status-fallback="Если письмо не открылось, напишите напрямую: info@falconindustries.io.">
-          <input type="hidden" name="project" value="">
           <label>
             <span>Имя</span>
             <input type="text" name="name" required>
@@ -292,7 +287,7 @@
           </label>
           <label>
             <span>Страна</span>
-            <input type="text" name="country" oninput="this.form.elements.project.value='Страна: ' + (this.value || '') + '\n\nСообщение:\n' + (this.form.elements.message.value || '')">
+            <input type="text" name="country">
           </label>
           <label>
             <span>Контакт</span>
@@ -300,7 +295,7 @@
           </label>
           <label>
             <span>Сообщение</span>
-            <textarea name="message" rows="6" required oninput="this.form.elements.project.value='Страна: ' + (this.form.elements.country.value || '') + '\n\nСообщение:\n' + (this.value || '')"></textarea>
+            <textarea name="message" rows="6" required></textarea>
           </label>
           <button type="submit" class="button button--primary">Отправить запрос</button>
           <p class="form-status" role="status" aria-live="polite" data-form-status></p>
