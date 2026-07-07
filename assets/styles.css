@@ -163,7 +163,8 @@ button {
 }
 
 .section-title,
-h2 {
+.section > .container > h2,
+.section > .container > [data-reveal] > h2 {
   margin: 0;
   color: var(--falcon-white);
   font-size: clamp(2.2rem, 3.6vw, 4.4rem);
@@ -172,24 +173,39 @@ h2 {
 }
 
 .section-copy,
-.section p,
+.section > .container > p:not(.section-label),
+.section > .container > [data-reveal] > p:not(.section-label),
 .contact-form span,
 .form-status {
   color: var(--falcon-white-soft);
 }
 
-h3 {
+.approach-card h3,
+.signal-card h3,
+.tech-card h3,
+.industry-tile h3,
+.capability-column h3,
+.radar-stage h3 {
   margin: 0;
   font-size: clamp(1.05rem, 1.4vw, 1.35rem);
   line-height: 1.15;
   letter-spacing: 0;
 }
 
-p {
+.section > .container > p,
+.section > .container > [data-reveal] > p,
+.hero-copy p,
+.signal-card p,
+.tech-card p,
+.industry-tile p,
+.radar-stage p,
+.contact-form p,
+.form-status {
   margin: 0;
 }
 
-.section p + p,
+.section > .container > p:not(.section-label) + p:not(.section-label),
+.section > .container > [data-reveal] > p:not(.section-label) + p:not(.section-label),
 .hero-copy p + p,
 .contact-form label + label {
   margin-top: 1rem;
@@ -688,10 +704,6 @@ p {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
-.tech-card:nth-child(4) {
-  grid-column: span 3;
-}
-
 .industry-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -925,10 +937,6 @@ p {
   .capabilities-grid,
   .capability-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .tech-card:nth-child(4) {
-    grid-column: auto;
   }
 
   .industry-grid,
