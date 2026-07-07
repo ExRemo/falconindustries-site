@@ -11,12 +11,13 @@
     header.classList.toggle("is-scrolled", window.scrollY > 8);
   };
 
-  const closeMenu = () => {
+  const closeMenu = ({ restoreFocus = false } = {}) => {
     if (!menuToggle || !mobileMenu) return;
     menuToggle.setAttribute("aria-expanded", "false");
     mobileMenu.hidden = true;
     body.classList.remove("menu-open");
     header?.classList.remove("is-open");
+    if (restoreFocus) menuToggle.focus({ preventScroll: true });
   };
 
   const openMenu = () => {
@@ -33,16 +34,16 @@
 
   menuToggle?.addEventListener("click", () => {
     const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-    if (isOpen) closeMenu();
+    if (isOpen) closeMenu({ restoreFocus: true });
     else openMenu();
   });
 
   mobileMenu?.addEventListener("click", (event) => {
-    if (event.target.closest("a")) closeMenu();
+    if (event.target.closest("a")) closeMenu({ restoreFocus: true });
   });
 
   doc.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeMenu();
+    if (event.key === "Escape") closeMenu({ restoreFocus: true });
   });
 
   doc.querySelectorAll("[data-video-fallback]").forEach((video) => {
