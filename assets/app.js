@@ -6,6 +6,8 @@
   const mobileMenu = doc.querySelector("[data-mobile-menu]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  body?.classList.add("has-js");
+
   const setHeaderState = () => {
     if (!header) return;
     header.classList.toggle("is-scrolled", window.scrollY > 8);
@@ -52,21 +54,32 @@
     }
   });
 
-  doc.querySelectorAll("[data-video-fallback]").forEach((video) => {
+  doc.querySelectorAll("[data-video-fallback]").forEach((element) => {
+    const video = element.matches("video") ? element : element.querySelector("video");
+    const fallbackTarget =
+      element.closest(".hero-visual, .hero__media") ||
+      element.querySelector(".hero-visual, .hero__media") ||
+      element;
+
     if (reduceMotion) {
-      video.removeAttribute("autoplay");
-      video.pause();
-      video.closest(".hero__media")?.classList.add("has-video-error");
+      video?.removeAttribute("autoplay");
+      if (typeof video?.pause === "function") video.pause();
+      fallbackTarget.classList.add("has-video-error");
+      return;
+    }
+
+    if (!video) {
+      fallbackTarget.classList.add("has-video-error");
       return;
     }
 
     video.addEventListener("error", () => {
-      video.closest(".hero__media")?.classList.add("has-video-error");
+      fallbackTarget.classList.add("has-video-error");
     });
 
     video.querySelectorAll("source").forEach((source) => {
       source.addEventListener("error", () => {
-        video.closest(".hero__media")?.classList.add("has-video-error");
+        fallbackTarget.classList.add("has-video-error");
       });
     });
   });

@@ -329,6 +329,19 @@ button {
   object-fit: contain;
 }
 
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.footer-logo img {
+  width: auto;
+  max-width: min(100%, 13rem);
+  height: 36px;
+  object-fit: contain;
+}
+
 .site-nav {
   display: flex;
   align-items: center;
@@ -964,9 +977,18 @@ button {
   font-size: 0.9rem;
 }
 
-[data-reveal] {
+body.has-js [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, 1.5rem, 0);
+  transition:
+    opacity 560ms var(--ease-out),
+    transform 560ms var(--ease-out);
+  will-change: opacity, transform;
+}
+
+[data-reveal].is-visible {
   opacity: 1;
-  transform: none;
+  transform: translate3d(0, 0, 0);
 }
 
 @media (max-width: 1120px) {
@@ -1116,5 +1138,7 @@ button {
   [data-reveal] {
     opacity: 1;
     transform: none;
+    transition: none;
+    will-change: auto;
   }
 }
