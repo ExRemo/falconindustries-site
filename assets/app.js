@@ -43,7 +43,13 @@
   });
 
   doc.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") closeMenu({ restoreFocus: true });
+    const isMenuOpen =
+      menuToggle?.getAttribute("aria-expanded") === "true" ||
+      (mobileMenu && mobileMenu.hidden === false);
+
+    if (event.key === "Escape" && isMenuOpen) {
+      closeMenu({ restoreFocus: true });
+    }
   });
 
   doc.querySelectorAll("[data-video-fallback]").forEach((video) => {
