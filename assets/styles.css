@@ -491,8 +491,9 @@ button {
   border-radius: var(--radius-large);
   background:
     linear-gradient(145deg, rgba(5, 5, 5, 0.18), rgba(5, 5, 5, 0.84)),
-    url("/public/media/hero-poster.jpg"),
-    url("hero-poster.jpg");
+    linear-gradient(135deg, rgba(5, 5, 5, 0.18), rgba(196, 50, 42, 0.08)),
+    url("/assets/hero-poster.jpg"),
+    url("/assets/og-falcon.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -504,8 +505,28 @@ button {
   inset: 0;
 }
 
+.hero__media::before,
+.hero-visual::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  content: "";
+  background:
+    radial-gradient(circle at 18% 68%, rgba(224, 30, 45, 0.9) 0 0.25rem, transparent 0.3rem),
+    radial-gradient(circle at 78% 22%, rgba(224, 30, 45, 0.72) 0 0.18rem, transparent 0.24rem),
+    radial-gradient(circle at 72% 34%, rgba(77, 163, 255, 0.56) 0 0.18rem, transparent 0.24rem),
+    linear-gradient(122deg, transparent 0 38%, rgba(224, 30, 45, 0.2) 38% 39.1%, transparent 39.1% 100%),
+    linear-gradient(122deg, transparent 0 44%, rgba(224, 30, 45, 0.12) 44% 44.7%, transparent 44.7% 100%),
+    linear-gradient(90deg, transparent 0 17%, rgba(224, 30, 45, 0.26) 17% 32%, transparent 32% 100%),
+    linear-gradient(90deg, transparent 0 71%, rgba(77, 163, 255, 0.18) 71% 84%, transparent 84% 100%);
+  opacity: 0.78;
+  pointer-events: none;
+}
+
 .hero__video,
 .hero-visual video {
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -515,10 +536,12 @@ button {
 .hero__fallback {
   position: absolute;
   inset: 0;
+  z-index: 0;
   background:
     linear-gradient(145deg, rgba(5, 5, 5, 0.12), rgba(5, 5, 5, 0.82)),
-    url("/public/media/hero-poster.jpg"),
-    url("hero-poster.jpg");
+    linear-gradient(135deg, rgba(5, 5, 5, 0.18), rgba(196, 50, 42, 0.08)),
+    url("/assets/hero-poster.jpg"),
+    url("/assets/og-falcon.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -528,8 +551,15 @@ button {
 .hero-visual::after {
   position: absolute;
   inset: 0;
+  z-index: 2;
   content: "";
   background:
+    radial-gradient(circle at 18% 68%, rgba(224, 30, 45, 0.22) 0 0.5rem, transparent 0.6rem),
+    radial-gradient(circle at 78% 22%, rgba(224, 30, 45, 0.14) 0 0.42rem, transparent 0.52rem),
+    radial-gradient(circle at 72% 34%, rgba(77, 163, 255, 0.12) 0 0.48rem, transparent 0.58rem),
+    repeating-linear-gradient(122deg, transparent 0 7.25rem, rgba(224, 30, 45, 0.12) 7.25rem 7.4rem, transparent 7.4rem 14rem),
+    linear-gradient(122deg, transparent 0 37%, rgba(224, 30, 45, 0.18) 37% 39%, transparent 39% 100%),
+    linear-gradient(90deg, transparent 0 18%, rgba(224, 30, 45, 0.18) 18% 33%, transparent 33% 100%),
     linear-gradient(180deg, rgba(5, 5, 5, 0.18) 0%, rgba(5, 5, 5, 0.56) 72%, rgba(5, 5, 5, 0.82) 100%),
     linear-gradient(135deg, rgba(11, 13, 16, 0.18), rgba(196, 50, 42, 0.14));
   pointer-events: none;
@@ -777,25 +807,44 @@ button {
     linear-gradient(135deg, rgba(21, 25, 31, 0.98), rgba(11, 13, 16, 0.96));
 }
 
+.network-panel > *,
+.section--network .container > * {
+  position: relative;
+  z-index: 1;
+}
+
 .network-panel::before,
 .section--network .container::before {
   position: absolute;
-  inset: 2rem auto auto 54%;
-  width: 34%;
-  height: 34%;
-  border: 1px solid rgba(77, 163, 255, 0.24);
-  border-radius: 999px;
+  inset: 0;
   content: "";
+  background:
+    radial-gradient(circle at 14% 28%, rgba(224, 30, 45, 0.9) 0 0.26rem, transparent 0.34rem),
+    radial-gradient(circle at 31% 46%, rgba(77, 163, 255, 0.84) 0 0.22rem, transparent 0.3rem),
+    radial-gradient(circle at 46% 63%, rgba(224, 30, 45, 0.84) 0 0.24rem, transparent 0.32rem),
+    radial-gradient(circle at 63% 34%, rgba(77, 163, 255, 0.78) 0 0.18rem, transparent 0.26rem),
+    radial-gradient(circle at 79% 56%, rgba(224, 30, 45, 0.78) 0 0.22rem, transparent 0.3rem),
+    linear-gradient(27deg, transparent 0 23%, rgba(224, 30, 45, 0.26) 23% 23.35%, transparent 23.35% 100%),
+    linear-gradient(31deg, transparent 0 40%, rgba(77, 163, 255, 0.2) 40% 40.35%, transparent 40.35% 100%),
+    linear-gradient(-22deg, transparent 0 57%, rgba(224, 30, 45, 0.18) 57% 57.35%, transparent 57.35% 100%),
+    linear-gradient(14deg, transparent 0 71%, rgba(77, 163, 255, 0.16) 71% 71.3%, transparent 71.3% 100%);
+  opacity: 0.95;
+  pointer-events: none;
 }
 
 .network-panel::after,
 .section--network .container::after {
   position: absolute;
-  inset: auto auto 2rem 8%;
-  width: 46%;
-  height: 1px;
+  inset: 1.5rem;
   content: "";
-  background: linear-gradient(90deg, rgba(224, 30, 45, 0.8), rgba(77, 163, 255, 0.1));
+  border: 1px solid rgba(77, 163, 255, 0.08);
+  border-radius: calc(var(--radius-large) - 0.35rem);
+  background:
+    radial-gradient(circle at 65% 30%, transparent 0 3.5rem, rgba(77, 163, 255, 0.16) 3.5rem 3.62rem, transparent 3.62rem 100%),
+    radial-gradient(circle at 22% 68%, transparent 0 4.5rem, rgba(224, 30, 45, 0.12) 4.5rem 4.62rem, transparent 4.62rem 100%),
+    linear-gradient(90deg, transparent 0 10%, rgba(224, 30, 45, 0.1) 10% 54%, transparent 54% 100%);
+  opacity: 0.9;
+  pointer-events: none;
 }
 
 .radar,
