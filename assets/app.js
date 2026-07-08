@@ -54,36 +54,6 @@
     }
   });
 
-  doc.querySelectorAll("[data-video-fallback]").forEach((element) => {
-    const video = element.matches("video") ? element : element.querySelector("video");
-    const fallbackTarget =
-      element.closest(".hero-visual, .hero__media") ||
-      element.querySelector(".hero-visual, .hero__media") ||
-      element;
-
-    if (reduceMotion) {
-      video?.removeAttribute("autoplay");
-      if (typeof video?.pause === "function") video.pause();
-      fallbackTarget.classList.add("has-video-error");
-      return;
-    }
-
-    if (!video) {
-      fallbackTarget.classList.add("has-video-error");
-      return;
-    }
-
-    video.addEventListener("error", () => {
-      fallbackTarget.classList.add("has-video-error");
-    });
-
-    video.querySelectorAll("source").forEach((source) => {
-      source.addEventListener("error", () => {
-        fallbackTarget.classList.add("has-video-error");
-      });
-    });
-  });
-
   const revealElements = Array.from(doc.querySelectorAll("[data-reveal]"));
   const showRevealElements = () => {
     revealElements.forEach((element) => {

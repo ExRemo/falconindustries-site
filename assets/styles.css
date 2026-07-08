@@ -67,8 +67,7 @@ body.menu-open {
   overflow: hidden;
 }
 
-img,
-video {
+img {
   display: block;
   max-width: 100%;
 }
@@ -533,17 +532,16 @@ body[data-lang="zh"] .radar-stage h3 {
 .hero-visual {
   position: relative;
   min-height: 34rem;
+  isolation: isolate;
   overflow: hidden;
   border: 1px solid var(--falcon-border);
   border-radius: var(--radius-large);
   background:
-    linear-gradient(145deg, rgba(5, 5, 5, 0.18), rgba(5, 5, 5, 0.84)),
-    linear-gradient(135deg, rgba(5, 5, 5, 0.18), rgba(196, 50, 42, 0.08)),
-    url("/assets/hero-poster.jpg"),
-    url("/assets/og-falcon.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+    radial-gradient(circle at 72% 18%, rgba(224, 30, 45, 0.2), transparent 34rem),
+    radial-gradient(circle at 82% 68%, rgba(77, 163, 255, 0.08), transparent 28rem),
+    radial-gradient(circle at 20% 78%, rgba(224, 30, 45, 0.1), transparent 22rem),
+    linear-gradient(135deg, rgba(224, 30, 45, 0.11), transparent 26%),
+    linear-gradient(180deg, #050505 0%, #0b0d10 52%, #050505 100%);
   box-shadow: 0 28px 64px rgba(0, 0, 0, 0.34);
 }
 
@@ -555,60 +553,38 @@ body[data-lang="zh"] .radar-stage h3 {
 .hero__media::before,
 .hero-visual::before {
   position: absolute;
-  inset: 0;
+  inset: 12% -10% auto auto;
   z-index: 0;
+  width: 48vw;
+  min-width: 420px;
+  height: 28vw;
+  min-height: 240px;
+  transform: skewX(-24deg);
   content: "";
   background:
-    radial-gradient(circle at 18% 68%, rgba(224, 30, 45, 0.9) 0 0.25rem, transparent 0.3rem),
-    radial-gradient(circle at 78% 22%, rgba(224, 30, 45, 0.72) 0 0.18rem, transparent 0.24rem),
-    radial-gradient(circle at 72% 34%, rgba(77, 163, 255, 0.56) 0 0.18rem, transparent 0.24rem),
-    linear-gradient(122deg, transparent 0 38%, rgba(224, 30, 45, 0.2) 38% 39.1%, transparent 39.1% 100%),
-    linear-gradient(122deg, transparent 0 44%, rgba(224, 30, 45, 0.12) 44% 44.7%, transparent 44.7% 100%),
-    linear-gradient(90deg, transparent 0 17%, rgba(224, 30, 45, 0.26) 17% 32%, transparent 32% 100%),
-    linear-gradient(90deg, transparent 0 71%, rgba(77, 163, 255, 0.18) 71% 84%, transparent 84% 100%);
-  opacity: 0.78;
+    linear-gradient(120deg, rgba(224, 30, 45, 0.3), rgba(224, 30, 45, 0.04) 58%, transparent),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent);
+  border: 1px solid rgba(224, 30, 45, 0.18);
+  opacity: 0.55;
   pointer-events: none;
-}
-
-.hero__video,
-.hero-visual video {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(0.96) contrast(1.04);
-}
-
-.hero__fallback {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background:
-    linear-gradient(145deg, rgba(5, 5, 5, 0.12), rgba(5, 5, 5, 0.82)),
-    linear-gradient(135deg, rgba(5, 5, 5, 0.18), rgba(196, 50, 42, 0.08)),
-    url("/assets/hero-poster.jpg"),
-    url("/assets/og-falcon.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .hero__overlay,
 .hero-visual::after {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 1;
   content: "";
   background:
-    radial-gradient(circle at 18% 68%, rgba(224, 30, 45, 0.22) 0 0.5rem, transparent 0.6rem),
-    radial-gradient(circle at 78% 22%, rgba(224, 30, 45, 0.14) 0 0.42rem, transparent 0.52rem),
-    radial-gradient(circle at 72% 34%, rgba(77, 163, 255, 0.12) 0 0.48rem, transparent 0.58rem),
+    radial-gradient(circle at 18% 68%, rgba(224, 30, 45, 0.9) 0 0.25rem, transparent 0.3rem),
+    radial-gradient(circle at 78% 22%, rgba(224, 30, 45, 0.72) 0 0.18rem, transparent 0.24rem),
+    radial-gradient(circle at 72% 34%, rgba(77, 163, 255, 0.56) 0 0.18rem, transparent 0.24rem),
     repeating-linear-gradient(122deg, transparent 0 7.25rem, rgba(224, 30, 45, 0.12) 7.25rem 7.4rem, transparent 7.4rem 14rem),
-    linear-gradient(122deg, transparent 0 37%, rgba(224, 30, 45, 0.18) 37% 39%, transparent 39% 100%),
-    linear-gradient(90deg, transparent 0 18%, rgba(224, 30, 45, 0.18) 18% 33%, transparent 33% 100%),
-    linear-gradient(180deg, rgba(5, 5, 5, 0.18) 0%, rgba(5, 5, 5, 0.56) 72%, rgba(5, 5, 5, 0.82) 100%),
-    linear-gradient(135deg, rgba(11, 13, 16, 0.18), rgba(196, 50, 42, 0.14));
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.06) 0%, rgba(5, 5, 5, 0.42) 72%, rgba(5, 5, 5, 0.68) 100%);
+  background-size: auto, auto, auto, auto, 72px 72px, 72px 72px, auto;
+  mask-image: radial-gradient(circle at 70% 40%, black, transparent 68%);
   pointer-events: none;
 }
 
@@ -1231,11 +1207,6 @@ body[data-lang="zh"] .industry-tile .no-break {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  .hero__video,
-  .hero-visual video {
-    display: none;
   }
 
   .js-enabled [data-reveal],
