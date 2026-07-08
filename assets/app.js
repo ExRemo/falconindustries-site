@@ -1,12 +1,12 @@
 (() => {
+  document.documentElement.classList.add("js-enabled");
+
   const doc = document;
   const body = doc.body;
   const header = doc.querySelector("[data-site-header]");
   const menuToggle = doc.querySelector("[data-menu-toggle]");
   const mobileMenu = doc.querySelector("[data-mobile-menu]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-  body?.classList.add("has-js");
 
   const setHeaderState = () => {
     if (!header) return;
@@ -84,29 +84,36 @@
     });
   });
 
-  if (reduceMotion) {
-    doc.querySelectorAll("[data-reveal]").forEach((element) => {
+  const revealElements = Array.from(doc.querySelectorAll("[data-reveal]"));
+  const showRevealElements = () => {
+    revealElements.forEach((element) => {
       element.classList.add("is-visible");
     });
-  } else if ("IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add("is-visible");
-          revealObserver.unobserve(entry.target);
-        });
-      },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
-    );
+  };
 
-    doc.querySelectorAll("[data-reveal]").forEach((element) => {
-      revealObserver.observe(element);
-    });
+  if (reduceMotion) {
+    showRevealElements();
+  } else if ("IntersectionObserver" in window) {
+    try {
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          });
+        },
+        { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+      );
+
+      revealElements.forEach((element) => {
+        revealObserver.observe(element);
+      });
+    } catch {
+      showRevealElements();
+    }
   } else {
-    doc.querySelectorAll("[data-reveal]").forEach((element) => {
-      element.classList.add("is-visible");
-    });
+    showRevealElements();
   }
 
   doc.querySelectorAll("[data-year]").forEach((element) => {

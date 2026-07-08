@@ -313,6 +313,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
   min-height: var(--nav-height);
   gap: 1.5rem;
 }
@@ -346,17 +347,23 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.4rem;
+  flex: 0 1 auto;
+  flex-wrap: nowrap;
+  gap: 1rem;
   margin-left: auto;
 }
 
 .site-nav a {
   position: relative;
+  min-width: max-content;
   color: var(--falcon-muted);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 800;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.08em;
+  overflow-wrap: normal;
   text-transform: uppercase;
+  white-space: nowrap;
+  word-break: keep-all;
   transition: color 180ms var(--ease-out);
 }
 
@@ -386,6 +393,7 @@ button {
 .header-actions {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
   gap: 0.9rem;
 }
 
@@ -748,7 +756,7 @@ button {
 .technology-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .tech-card {
@@ -977,7 +985,13 @@ button {
   font-size: 0.9rem;
 }
 
-body.has-js [data-reveal] {
+[data-reveal] {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.js-enabled [data-reveal] {
   opacity: 0;
   transform: translate3d(0, 1.5rem, 0);
   transition:
@@ -986,9 +1000,22 @@ body.has-js [data-reveal] {
   will-change: opacity, transform;
 }
 
-[data-reveal].is-visible {
+.js-enabled [data-reveal].is-visible {
   opacity: 1;
+  visibility: visible;
   transform: translate3d(0, 0, 0);
+}
+
+@media (max-width: 1280px) {
+  .site-nav,
+  .nav__cta,
+  .header-actions > .button {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
 }
 
 @media (max-width: 1120px) {
@@ -1135,8 +1162,10 @@ body.has-js [data-reveal] {
     display: none;
   }
 
+  .js-enabled [data-reveal],
   [data-reveal] {
     opacity: 1;
+    visibility: visible;
     transform: none;
     transition: none;
     will-change: auto;
