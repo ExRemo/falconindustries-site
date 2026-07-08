@@ -181,28 +181,39 @@ button {
   color: var(--falcon-white-soft);
 }
 
+.no-break {
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
 .approach-card h3,
 .signal-card h3,
 .tech-card h3,
 .industry-tile h3,
+.industry-tile__title,
+.industry-title,
 .capability-column h3,
 .radar-stage h3 {
   margin: 0;
   font-size: clamp(1.05rem, 1.4vw, 1.35rem);
   line-height: 1.15;
   letter-spacing: 0;
-  word-break: normal;
-  overflow-wrap: normal;
-  hyphens: none;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
 }
 
 body[data-lang="zh"] .approach-card h3,
 body[data-lang="zh"] .signal-card h3,
 body[data-lang="zh"] .tech-card h3,
 body[data-lang="zh"] .industry-tile h3,
+body[data-lang="zh"] .industry-tile__title,
+body[data-lang="zh"] .industry-title,
 body[data-lang="zh"] .capability-column h3,
 body[data-lang="zh"] .radar-stage h3 {
-  word-break: keep-all;
+  word-break: keep-all !important;
   line-break: loose;
 }
 
@@ -783,8 +794,8 @@ body[data-lang="zh"] .radar-stage h3 {
 
 .industry-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(260px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
 }
 
 .industry-tile {
@@ -798,22 +809,57 @@ body[data-lang="zh"] .radar-stage h3 {
     linear-gradient(180deg, rgba(17, 20, 24, 0.92), rgba(5, 5, 5, 0.94));
 }
 
-.industry-tile h3 {
-  max-width: none;
-  inline-size: auto;
+.industry-tile h3,
+.industry-tile__title,
+.industry-title {
+  max-width: none !important;
+  inline-size: auto !important;
+  width: auto;
+  min-width: 0;
   white-space: normal;
-  word-break: normal;
-  overflow-wrap: normal;
-  hyphens: none;
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
   line-break: auto;
   letter-spacing: -0.02em;
-  text-wrap: balance;
+  text-wrap: normal;
+  font-size: clamp(22px, 1.5vw, 28px);
+  line-height: 1.12;
 }
 
-body[data-lang="zh"] .industry-tile h3 {
-  word-break: keep-all;
+.industry-tile .no-break {
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+  line-break: auto;
+}
+
+body[data-lang="zh"] .industry-tile h3,
+body[data-lang="zh"] .industry-tile__title,
+body[data-lang="zh"] .industry-title {
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
   line-break: loose;
   letter-spacing: normal;
+}
+
+body[data-lang="zh"] .industry-tile .no-break {
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+  line-break: loose;
+  letter-spacing: normal;
+}
+
+@media (min-width: 1680px) {
+  .industry-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .industry-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .capabilities-grid,
