@@ -90,9 +90,13 @@
     const mediaPanel = video.closest(".hero__media");
 
     video.muted = true;
+    video.loop = true;
     video.playsInline = true;
+    video.preload = "auto";
     video.setAttribute("muted", "");
+    video.setAttribute("loop", "");
     video.setAttribute("playsinline", "");
+    video.setAttribute("preload", "auto");
 
     const markReady = () => {
       mediaPanel?.classList.add("has-video-ready");
@@ -112,11 +116,6 @@
         mediaPanel?.classList.add("has-video-error");
       }
     };
-
-    if (reduceMotion) {
-      video.pause();
-      return;
-    }
 
     video.addEventListener("canplay", markReady, { once: true });
     video.addEventListener("canplaythrough", markReady, { once: true });
