@@ -86,56 +86,92 @@
     showRevealElements();
   }
 
-  doc.querySelectorAll("[data-video-fallback]").forEach((video) => {
-    const mediaPanel = video.closest(".hero__media");
+  const heroVideos = Array.from(doc.querySelectorAll("[data-video-fallback]"));
 
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.preload = "auto";
-    video.setAttribute("muted", "");
-    video.setAttribute("loop", "");
-    video.setAttribute("playsinline", "");
-    video.setAttribute("preload", "auto");
+  if (heroVideos.length > 0) {
+    const heroMediaQuery = window.matchMedia("(max-width: 768px)");
+    let activeHeroVideo = null;
 
-    const markReady = () => {
-      mediaPanel?.classList.add("has-video-ready");
-      mediaPanel?.classList.remove("has-video-error");
-      video.classList.remove("has-video-error");
+    heroVideos.forEach((video) => {
+      video.autoplay = true;
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.preload = "metadata";
+      video.setAttribute("autoplay", "");
+      video.setAttribute("muted", "");
+      video.setAttribute("loop", "");
+      video.setAttribute("playsinline", "");
+      video.setAttribute("preload", "metadata");
+
+      video.addEventListener("playing", () => {
+        if (video !== activeHeroVideo) return;
+        const mediaPanel = video.closest(".hero__media");
+        mediaPanel?.classList.add("has-video-ready");
+        mediaPanel?.classList.remove("has-video-error");
+        video.classList.remove("has-video-error");
+      });
+
+      video.addEventListener("error", () => {
+        video.classList.add("has-video-error");
+        if (video !== activeHeroVideo) return;
+        const mediaPanel = video.closest(".hero__media");
+        mediaPanel?.classList.remove("has-video-ready");
+        mediaPanel?.classList.add("has-video-error");
+      });
+    });
+
+    const unloadHeroVideo = (video) => {
+      video.pause();
+      if (!video.hasAttribute("src")) return;
+      video.removeAttribute("src");
+      video.load();
     };
 
-    const markVideoFailed = () => {
-      video.classList.add("has-video-error");
+    const syncHeroVideo = () => {
+      const targetClass = heroMediaQuery.matches
+        ? "hero__video--mobile"
+        : "hero__video--desktop";
+      const nextVideo = heroVideos.find((video) => video.classList.contains(targetClass));
 
-      const candidates = Array.from(mediaPanel?.querySelectorAll("[data-video-fallback]") || []);
-      const allCandidatesFailed =
-        candidates.length > 0 &&
-        candidates.every((candidate) => candidate.classList.contains("has-video-error"));
+      if (!nextVideo || nextVideo === activeHeroVideo) return;
 
-      if (allCandidatesFailed) {
+      heroVideos.forEach((video) => {
+        if (video !== nextVideo) unloadHeroVideo(video);
+      });
+
+      activeHeroVideo = nextVideo;
+      const mediaPanel = nextVideo.closest(".hero__media");
+      mediaPanel?.classList.remove("has-video-ready", "has-video-error");
+      nextVideo.classList.remove("has-video-error");
+
+      const source = nextVideo.dataset.src;
+      if (!source) {
+        nextVideo.classList.add("has-video-error");
         mediaPanel?.classList.add("has-video-error");
+        return;
+      }
+
+      nextVideo.src = source;
+      nextVideo.load();
+
+      const playAttempt = nextVideo.play();
+      if (playAttempt && typeof playAttempt.catch === "function") {
+        playAttempt.catch((error) => {
+          if (nextVideo !== activeHeroVideo || error?.name === "AbortError") return;
+          console.warn("Falcon hero video autoplay delayed or blocked.");
+        });
       }
     };
 
-    video.addEventListener("canplay", markReady, { once: true });
-    video.addEventListener("canplaythrough", markReady, { once: true });
-    video.addEventListener("error", markVideoFailed);
-    video.querySelectorAll("source").forEach((source) => {
-      source.addEventListener("error", markVideoFailed);
-    });
-
-    if (window.getComputedStyle(video).display === "none") {
-      video.pause();
-      return;
+    if (typeof heroMediaQuery.addEventListener === "function") {
+      heroMediaQuery.addEventListener("change", syncHeroVideo);
+    } else {
+      heroMediaQuery.addListener(syncHeroVideo);
     }
 
-    const playAttempt = video.play();
-    if (playAttempt && typeof playAttempt.catch === "function") {
-      playAttempt.catch(() => {
-        console.warn("Falcon hero video autoplay delayed or blocked.");
-      });
-    }
-  });
+    syncHeroVideo();
+  }
 
   doc.querySelectorAll("[data-year]").forEach((element) => {
     element.textContent = String(new Date().getFullYear());
