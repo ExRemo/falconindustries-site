@@ -18,11 +18,11 @@
   <meta property="og:title" content="Falcon Industries — партнёр по промышленным инновациям">
   <meta property="og:description" content="Мы находим технологии, которые меняют отрасли. Находим. Проверяем. Внедряем. Масштабируем.">
   <meta property="og:url" content="https://falconindustries.io/">
-  <meta property="og:image" content="https://falconindustries.io/public/brand/falcon-og-logo.png">
+  <meta property="og:image" content="https://falconindustries.io/public/media/og-falcon.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Falcon Industries — партнёр по промышленным инновациям">
   <meta name="twitter:description" content="Мы находим технологии, которые меняют отрасли. Находим. Проверяем. Внедряем. Масштабируем.">
-  <meta name="twitter:image" content="https://falconindustries.io/public/brand/falcon-og-logo.png">
+  <meta name="twitter:image" content="https://falconindustries.io/public/media/og-falcon.jpg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,7 +35,8 @@
       "sameAs": ["https://falconindustries.io/"]
     }
   </script>
-  <link rel="stylesheet" href="assets/styles.css?v=20260708-no-legacy-media">
+  <link rel="preload" as="image" href="/public/media/hero-poster.jpg">
+  <link rel="stylesheet" href="assets/styles.css?v=20260709-media">
 </head>
 <body data-lang="ru">
   <a class="skip-link" href="#main">Перейти к содержанию</a>
@@ -94,7 +95,13 @@
           </div>
           <p class="hero-bottom-line">Находим. Проверяем. Внедряем. Масштабируем.</p>
         </div>
-        <div class="hero-visual" data-reveal aria-hidden="true"></div>
+        <div class="hero-visual hero__media" data-reveal aria-hidden="true">
+          <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="/public/media/hero-poster.jpg" data-video-fallback aria-hidden="true">
+            <source src="/public/media/hero-main-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+            <source src="/public/media/hero-main.mp4" type="video/mp4">
+          </video>
+          <div class="hero__overlay" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
     <section id="about" class="section section--manifesto">
@@ -115,18 +122,30 @@
         </div>
         <div class="signal-grid">
           <article class="signal-card" data-reveal>
+            <figure class="approach-card__media" aria-hidden="true">
+              <img src="/public/media/discover.jpg" alt="" width="2400" height="1350" loading="lazy" decoding="async">
+            </figure>
             <h3>Находим</h3>
             <p>Находим перспективные технологии, производителей, стартапы и промышленные решения на глобальных рынках.</p>
           </article>
           <article class="signal-card" data-reveal>
+            <figure class="approach-card__media" aria-hidden="true">
+              <img src="/public/media/validate.jpg" alt="" width="2400" height="1350" loading="lazy" decoding="async">
+            </figure>
             <h3>Проверяем</h3>
             <p>Проверяем качество продукта, надёжность производителя, технические риски, экономику внедрения и потенциал рынка.</p>
           </article>
           <article class="signal-card" data-reveal>
+            <figure class="approach-card__media" aria-hidden="true">
+              <img src="/public/media/deploy.jpg" alt="" width="2400" height="1350" loading="lazy" decoding="async">
+            </figure>
             <h3>Внедряем</h3>
             <p>Организуем подбор, адаптацию, документы, логистику, пилотный запуск и внедрение решения.</p>
           </article>
           <article class="signal-card" data-reveal>
+            <figure class="approach-card__media" aria-hidden="true">
+              <img src="/public/media/scale.jpg" alt="" width="2400" height="1350" loading="lazy" decoding="async">
+            </figure>
             <h3>Масштабируем</h3>
             <p>Помогаем масштабировать технологию через продажи, сервис, дилерские сети, локальные партнёрства и новые рынки.</p>
           </article>
@@ -142,26 +161,44 @@
         </div>
         <div class="technology-grid">
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/ai-robotics-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>ИИ и робототехника</h3>
             <p>Промышленные роботы, гуманоидные роботы, машинное зрение, складская роботизация, системы инспекции и интеллектуальные машины.</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/industrial-automation-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>Промышленная автоматизация</h3>
             <p>Автоматизация производства, логистики, складов, контроля качества и полевых операций.</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/industrial-equipment-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>Промышленное оборудование</h3>
             <p>Строительная техника, складское оборудование, коммунальная техника, подъёмные платформы и специализированные машины.</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/components-supply-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>Комплектующие и поставки</h3>
             <p>Промышленные комплектующие, запчасти, гидравлика, двигатели, электроника и механические системы.</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/factory-audit-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>Поиск и аудит заводов</h3>
             <p>Поиск производителей, аудит заводов, переговоры, OEM/ODM, контроль качества и техническая проверка.</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/global-supply-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>Глобальные поставки и логистика</h3>
             <p>Экспорт, документы, таможня, консолидация, склады и международная доставка.</p>
           </article>
@@ -332,6 +369,6 @@
       <p>&copy; <span data-year></span> Falcon Industries</p>
     </div>
   </footer>
-  <script src="assets/app.js?v=20260708-no-legacy-media" defer></script>
+  <script src="assets/app.js?v=20260709-media" defer></script>
 </body>
 </html>

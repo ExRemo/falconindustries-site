@@ -18,11 +18,11 @@
   <meta property="og:title" content="Falcon Industries — Industrial Innovation Partner">
   <meta property="og:description" content="We discover technologies that transform industries. Discover. Validate. Deploy. Scale.">
   <meta property="og:url" content="https://falconindustries.io/en/">
-  <meta property="og:image" content="https://falconindustries.io/public/brand/falcon-og-logo.png">
+  <meta property="og:image" content="https://falconindustries.io/public/media/og-falcon.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Falcon Industries — Industrial Innovation Partner">
   <meta name="twitter:description" content="We discover technologies that transform industries. Discover. Validate. Deploy. Scale.">
-  <meta name="twitter:image" content="https://falconindustries.io/public/brand/falcon-og-logo.png">
+  <meta name="twitter:image" content="https://falconindustries.io/public/media/og-falcon.jpg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,7 +35,8 @@
       "sameAs": ["https://falconindustries.io/"]
     }
   </script>
-  <link rel="stylesheet" href="../assets/styles.css?v=20260708-no-legacy-media">
+  <link rel="preload" as="image" href="/public/media/hero-poster.jpg">
+  <link rel="stylesheet" href="../assets/styles.css?v=20260709-media">
 </head>
 <body data-lang="en">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -94,7 +95,13 @@
           </div>
           <p class="hero-bottom-line">Discover. Validate. Deploy. Scale.</p>
         </div>
-        <div class="hero-visual" data-reveal aria-hidden="true"></div>
+        <div class="hero-visual hero__media" data-reveal aria-hidden="true">
+          <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="/public/media/hero-poster.jpg" data-video-fallback aria-hidden="true">
+            <source src="/public/media/hero-main-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+            <source src="/public/media/hero-main.mp4" type="video/mp4">
+          </video>
+          <div class="hero__overlay" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
     <section id="about" class="section section--manifesto">
@@ -115,18 +122,30 @@
         </div>
         <div class="signal-grid">
           <article class="signal-card" data-reveal>
+            <figure class="approach-card__media" aria-hidden="true">
+              <img src="/public/media/discover.jpg" alt="" width="2400" height="1350" loading="lazy" decoding="async">
+            </figure>
             <h3>Discover</h3>
             <p>We identify promising technologies, manufacturers, startups and industrial solutions across global markets.</p>
           </article>
           <article class="signal-card" data-reveal>
+            <figure class="approach-card__media" aria-hidden="true">
+              <img src="/public/media/validate.jpg" alt="" width="2400" height="1350" loading="lazy" decoding="async">
+            </figure>
             <h3>Validate</h3>
             <p>We assess product quality, manufacturer reliability, technical risks, implementation economics and market potential.</p>
           </article>
           <article class="signal-card" data-reveal>
+            <figure class="approach-card__media" aria-hidden="true">
+              <img src="/public/media/deploy.jpg" alt="" width="2400" height="1350" loading="lazy" decoding="async">
+            </figure>
             <h3>Deploy</h3>
             <p>We manage sourcing, adaptation, documentation, logistics, pilot launch and solution deployment.</p>
           </article>
           <article class="signal-card" data-reveal>
+            <figure class="approach-card__media" aria-hidden="true">
+              <img src="/public/media/scale.jpg" alt="" width="2400" height="1350" loading="lazy" decoding="async">
+            </figure>
             <h3>Scale</h3>
             <p>We help technologies expand through sales channels, service infrastructure, dealer networks, local partnerships and new markets.</p>
           </article>
@@ -142,26 +161,44 @@
         </div>
         <div class="technology-grid">
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/ai-robotics-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>AI &amp; Robotics</h3>
             <p>Industrial robots, humanoid robots, AI vision, warehouse robotics, inspection systems and intelligent machines.</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/industrial-automation-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>Industrial Automation</h3>
             <p>Automation systems for manufacturing, logistics, quality control, warehouses and field operations.</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/industrial-equipment-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>Industrial Equipment</h3>
             <p>Construction machinery, warehouse equipment, municipal vehicles, lifting platforms and specialized machinery.</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/components-supply-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>Components &amp; Supply</h3>
             <p>Industrial components, spare parts, hydraulics, engines, electronics and mechanical systems.</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/factory-audit-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>Factory Sourcing &amp; Audit</h3>
             <p>Manufacturer search, factory audit, negotiations, OEM/ODM, quality control and technical verification.</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/global-supply-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>Global Supply &amp; Logistics</h3>
             <p>Export, documentation, customs, consolidation, warehousing and international delivery.</p>
           </article>
@@ -332,6 +369,6 @@
       <p>&copy; <span data-year></span> Falcon Industries</p>
     </div>
   </footer>
-  <script src="../assets/app.js?v=20260708-no-legacy-media" defer></script>
+  <script src="../assets/app.js?v=20260709-media" defer></script>
 </body>
 </html>

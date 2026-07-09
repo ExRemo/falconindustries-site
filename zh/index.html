@@ -18,11 +18,11 @@
   <meta property="og:title" content="Falcon Industries — 工业创新合作伙伴">
   <meta property="og:description" content="我们发现并引入改变行业的技术。发现。验证。部署。规模化。">
   <meta property="og:url" content="https://falconindustries.io/zh/">
-  <meta property="og:image" content="https://falconindustries.io/public/brand/falcon-og-logo.png">
+  <meta property="og:image" content="https://falconindustries.io/public/media/og-falcon.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Falcon Industries — 工业创新合作伙伴">
   <meta name="twitter:description" content="我们发现并引入改变行业的技术。发现。验证。部署。规模化。">
-  <meta name="twitter:image" content="https://falconindustries.io/public/brand/falcon-og-logo.png">
+  <meta name="twitter:image" content="https://falconindustries.io/public/media/og-falcon.jpg">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,7 +35,8 @@
       "sameAs": ["https://falconindustries.io/"]
     }
   </script>
-  <link rel="stylesheet" href="../assets/styles.css?v=20260708-no-legacy-media">
+  <link rel="preload" as="image" href="/public/media/hero-poster.jpg">
+  <link rel="stylesheet" href="../assets/styles.css?v=20260709-media">
 </head>
 <body data-lang="zh">
   <a class="skip-link" href="#main">跳至主要内容</a>
@@ -94,7 +95,13 @@
           </div>
           <p class="hero-bottom-line">发现。验证。部署。规模化。</p>
         </div>
-        <div class="hero-visual" data-reveal aria-hidden="true"></div>
+        <div class="hero-visual hero__media" data-reveal aria-hidden="true">
+          <video class="hero__video" autoplay muted loop playsinline preload="metadata" poster="/public/media/hero-poster.jpg" data-video-fallback aria-hidden="true">
+            <source src="/public/media/hero-main-mobile.mp4" type="video/mp4" media="(max-width: 768px)">
+            <source src="/public/media/hero-main.mp4" type="video/mp4">
+          </video>
+          <div class="hero__overlay" aria-hidden="true"></div>
+        </div>
       </div>
     </section>
     <section id="about" class="section section--manifesto">
@@ -115,18 +122,30 @@
         </div>
         <div class="signal-grid">
           <article class="signal-card" data-reveal>
+            <figure class="approach-card__media" aria-hidden="true">
+              <img src="/public/media/discover.jpg" alt="" width="2400" height="1350" loading="lazy" decoding="async">
+            </figure>
             <h3>发现</h3>
             <p>我们在全球范围内发现有潜力的技术、制造商、初创企业和工业解决方案。</p>
           </article>
           <article class="signal-card" data-reveal>
+            <figure class="approach-card__media" aria-hidden="true">
+              <img src="/public/media/validate.jpg" alt="" width="2400" height="1350" loading="lazy" decoding="async">
+            </figure>
             <h3>验证</h3>
             <p>我们验证产品质量、制造商可靠性、技术风险、落地经济性和市场潜力。</p>
           </article>
           <article class="signal-card" data-reveal>
+            <figure class="approach-card__media" aria-hidden="true">
+              <img src="/public/media/deploy.jpg" alt="" width="2400" height="1350" loading="lazy" decoding="async">
+            </figure>
             <h3>部署</h3>
             <p>我们负责选型、适配、文件、物流、试点启动和解决方案部署。</p>
           </article>
           <article class="signal-card" data-reveal>
+            <figure class="approach-card__media" aria-hidden="true">
+              <img src="/public/media/scale.jpg" alt="" width="2400" height="1350" loading="lazy" decoding="async">
+            </figure>
             <h3>规模化</h3>
             <p>我们帮助技术通过销售渠道、服务体系、经销商网络、本地合作伙伴和新市场实现规模化。</p>
           </article>
@@ -142,26 +161,44 @@
         </div>
         <div class="technology-grid">
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/ai-robotics-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>人工智能与机器人</h3>
             <p>工业机器人、人形机器人、机器视觉、仓储机器人、检测系统和智能设备。</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/industrial-automation-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>工业自动化</h3>
             <p>面向制造、物流、仓储、质量控制和现场作业的自动化系统。</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/industrial-equipment-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>工业设备</h3>
             <p>工程机械、仓储设备、市政车辆、高空作业平台和专用设备。</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/components-supply-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>零部件与供应</h3>
             <p>工业零部件、备件、液压系统、发动机、电子部件和机械系统。</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/factory-audit-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>工厂寻找与审核</h3>
             <p>制造商寻找、工厂审核、商务谈判、OEM/ODM、质量控制和技术验证。</p>
           </article>
           <article class="tech-card" data-reveal>
+            <figure class="tech-card__media" aria-hidden="true">
+              <img src="/public/media/global-supply-card.jpg" alt="" width="1920" height="1080" loading="lazy" decoding="async">
+            </figure>
             <h3>全球供应与物流</h3>
             <p>出口、单证、清关、集货、仓储和国际运输。</p>
           </article>
@@ -332,6 +369,6 @@
       <p>&copy; <span data-year></span> Falcon Industries</p>
     </div>
   </footer>
-  <script src="../assets/app.js?v=20260708-no-legacy-media" defer></script>
+  <script src="../assets/app.js?v=20260709-media" defer></script>
 </body>
 </html>

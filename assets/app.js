@@ -86,6 +86,20 @@
     showRevealElements();
   }
 
+  doc.querySelectorAll("[data-video-fallback]").forEach((video) => {
+    const mediaPanel = video.closest(".hero__media, .hero-visual");
+    const markVideoFailed = () => {
+      mediaPanel?.classList.add("has-video-error");
+    };
+
+    if (reduceMotion) {
+      video.pause();
+      return;
+    }
+
+    video.addEventListener("error", markVideoFailed, { once: true });
+  });
+
   doc.querySelectorAll("[data-year]").forEach((element) => {
     element.textContent = String(new Date().getFullYear());
   });
