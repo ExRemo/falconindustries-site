@@ -596,10 +596,19 @@ body[data-lang="zh"] .radar-stage h3 {
   position: absolute;
   inset: 0;
   z-index: 0;
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.74;
+  opacity: 1;
+}
+
+.hero__video--mobile {
+  display: none;
+}
+
+.hero__video.has-video-error {
+  display: none !important;
 }
 
 .hero__overlay {
@@ -613,7 +622,7 @@ body[data-lang="zh"] .radar-stage h3 {
 }
 
 .hero__media.has-video-error .hero__video {
-  display: none;
+  display: none !important;
 }
 
 .hero-layout {
@@ -1331,6 +1340,16 @@ body[data-lang="zh"] .industry-tile .no-break {
   .section--network .container,
   .contact-form {
     padding: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__video--desktop {
+    display: none;
+  }
+
+  .hero__video--mobile {
+    display: block;
   }
 }
 
