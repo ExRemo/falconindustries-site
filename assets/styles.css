@@ -616,8 +616,8 @@ body[data-lang="zh"] .radar-stage h3 {
   inset: 0;
   z-index: 3;
   background:
-    linear-gradient(90deg, rgba(5, 5, 5, 0.94), rgba(5, 5, 5, 0.48) 52%, rgba(5, 5, 5, 0.8)),
-    linear-gradient(180deg, rgba(5, 5, 5, 0.16), rgba(5, 5, 5, 0.72));
+    linear-gradient(90deg, rgba(5, 5, 5, 0.88), rgba(5, 5, 5, 0.22) 55%, rgba(5, 5, 5, 0.48)),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.08), rgba(5, 5, 5, 0.46));
   pointer-events: none;
 }
 
@@ -661,7 +661,7 @@ body[data-lang="zh"] .radar-stage h3 {
   margin: 0;
   font-size: clamp(52px, 8vw, 124px);
   line-height: 0.92;
-  letter-spacing: -0.06em;
+  letter-spacing: 0;
   text-wrap: balance;
 }
 
